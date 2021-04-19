@@ -1,23 +1,22 @@
 from turtle import Turtle
 
-class Paddle:
+class Paddle(Turtle):
 
     def __init__(self, starting_positions):
-        self.paddle = Turtle()
-        self.paddle.shape("square")
-        self.starting_positions = starting_positions
-        self.paddle.color("white")
-        self.paddle.shapesize(stretch_wid=5, stretch_len=1)
-        self.paddle.penup()
-        self.paddle.goto(self.starting_positions)
+        super().__init__()
+        self.shape("square")
+        self.color("white")
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.penup()
+        self.goto(starting_positions)
 
     def go_up(self):
-        new_y = self.paddle.ycor() + 20
-        if self.paddle.ycor() < 238:
-            self.paddle.goto(self.paddle.xcor(), new_y)
+        new_y = self.ycor() + 20
+        if self.ycor() < 238:
+            self.goto(self.xcor(), new_y)
     
     def go_down(self):
-        new_y = self.paddle.ycor() - 20
-        if self.paddle.ycor() > -238:
-            self.paddle.goto(self.paddle.xcor(), new_y)
+        new_y = self.ycor() - 20
+        if self.ycor() > -238:
+            self.goto(self.xcor(), new_y)
 
